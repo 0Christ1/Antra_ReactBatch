@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Master DOM Manipulation: Part 1</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+      * {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: linear-gradient(#0f2027, #203a43, #2c5364);
+        height: 100vh;
+        font-family: 'Lato', sans-serif;
+        border: solid 15px #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 4rem;
+        color: white;
+      }
+
+      #main-heading {
+        text-align: center;
+        margin-bottom: 100px;
+      }
+
+      .container {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(3, 40%);
+        gap: 5vh;
+        font-size: 40px;
+      }
+
+      .boxes {
+        border: 10px solid white;
+        height: 30vh;
+        border-radius: 30px;
+      }
+
+      #heading {
+        text-align: center;
+        margin: 50px 0;
+      }
+
+      #movies {
+        border: solid 5px #fff;
+        padding: 30px;
+        border-radius: 20px;
+        font-size: 3rem;
+        text-align: center;
+        color: #fff;
+      }
+
+      #movies li {
+        margin-bottom: 10px;
+        border: solid 2px #fff;
+        padding: 5px;
+        cursor: pointer;
+        background: white;
+        color: black;
+      }
+
+      .div2 {
+        border: solid 10px #fff;
+        border-radius: 20px;
+        font-size: 3.5rem;
+        text-align: center;
+        padding: 80px;
+        color: #fff;
+      }
+      .div1 {
+        border: solid 5px #fff;
+        border-radius: 20px;
+        font-size: 3.5rem;
+        text-align: center;
+        padding: 50px;
+        color: #fff;
+      }
+
+      button {
+        position: relative;
+        top: 20%;
+        left: 35%;
+        font-size: 30px;
+        background: none;
+        border: solid 2px #fff;
+        color: #fff;
+        border-radius: 10px;
+        padding: 10px 30px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 id="main-heading">Event Listeners</h1>
+    <!-- <div class="container">
+      <ul id="movies">
+        <h1 id="main-heading">Favourite Movie Franchise</h1>
+        <li class="list-item" id="the-matrix">The Matrix</li>
+        <li class="list-item" id="star-wars">Star Wars</li>
+        <li class="list-item" id="harry-potter">Harry Potter</li>
+        <li class="list-item" id="lord-rings">Lord of the Rings</li>
+        <li class="list-item" id="marvel">Marvel</li>
+      </ul>
+    </div> -->
+    <!-- <div class="container">
+      <ul id="movies">
+        <h1 id="main-heading">Favourite Movie Franchise</h1>
+        <li class="list-item">The Matrix</li>
+        <li class="list-item">Star Wars</li>
+        <li class="list-item">Harry Potter</li>
+        <li class="list-item">Lord of the Rings</li>
+        <li class="list-item">Marvel</li>
+      </ul>
+    </div> -->
+
+    <!-- <div class="container">
+      <div class="boxes box-1">
+        <h1 id="heading">Example 1</h1>
+        <button onclick="alert('I love JS')">Enter</button>
+      </div>
+      <div class="boxes box-2">
+        <h1 id="heading">Example 2</h1>
+        <button class="btn-2">Enter</button>
+      </div>
+      <div class="boxes box-3">
+        <h1 id="heading">Example 3</h1>
+        <button class="btn-3">Enter</button>
+      </div>
+    </div> -->
+
+    <div class="container">
+      <button class="reveal-btn boxes">More</button>
+      <div class="hidden-content boxes">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt sit
+        eum optio ipsa doloremque voluptate, impedit ducimus? Alias cum, saepe
+        culpa neque dolores facere dolorem quasi necessitatibus odio optio
+        ratione.
+      </div>
+    </div>
+  </body>
+
+  <script src="app.js"></script>
+</html>
