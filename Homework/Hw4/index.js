@@ -1,7 +1,7 @@
 const personForm = document.getElementById("personForm");
 const nameInput = document.getElementById("personName");
 const ageInput = document.getElementById("personAge");
-const addPersonBtn = document.getElementById("addPersonBtn");
+const peopleList = document.getElementById("peopleList");
 
 const people = JSON.parse(localStorage.getItem("people")) || [];
 // let people = JSON.parse(localStorage.getItem("people"));
@@ -15,6 +15,21 @@ personForm.addEventListener("submit", (e) => {
   };
   people.push(newPerson);
   localStorage.setItem("person", JSON.stringify(newPerson));
+  displayPeople();
+  personForm.reset();
+});
 
-  console.log("people", people); // Display the people on the DOM
+function displayPeople() {
+  peopleList.innerHTML = " ";
+  people.forEach((person) => {
+    const personItem = document.createElement("div");
+    personItem.textContent = `Name: ${person.name}, Age: ${person.age}`;
+    peopleList.appendChild(personItem);
+  });
+}
+
+displayPeople();
+
+window.addEventListener("beforeunload", () => {
+  localStorage.removeItem("people");
 });

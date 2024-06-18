@@ -16,5 +16,11 @@ personForm.addEventListener("submit", (e) => {
 
   people.push(newPerson);
   localStorage.setItem("person", JSON.stringify(newPerson));
-  console.log(people);
+  displayPeople();
+  personForm.reset();
 });
+
+function displayPeople() {
+  peopleList.innerHTML = "";
+  people.forEach((person) => {});
+}
