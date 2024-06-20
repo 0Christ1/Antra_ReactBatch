@@ -63,3 +63,60 @@ const sequentialPromise = async (promises, order) => {
 //     console.log(error);
 //   });
 //results = ["data2", "data1", "data3"]
+
+// ################################ Promise method ####################################
+const myPromise1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('Async task 1');
+    // reject('connection error');
+  }, 500);
+});
+const myPromise2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    // resolve('Async task 2');
+    reject('connection error');
+  }, 1000);
+});
+const myPromise3 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('Async task 3');
+  }, 2000);
+});
+
+const myPromises = [myPromise1, myPromise2, myPromise3];
+
+// Promise.all: execute all promises
+Promise.all(myPromises)
+  .then((res) => {
+    console.log('Promise.all', res);
+  })
+  .catch((err) => {
+    console.log(err, 'failed!');
+  });
+
+// Promise.allSettled: with status and value or reason
+Promise.allSettled(myPromises)
+  .then((res) => {
+    console.log('Promise.allSettled', res);
+  })
+  .catch((err) => {
+    console.log(err, 'failed!');
+  });
+
+// Promise.any: it's only taking the first successful promise
+Promise.any(myPromises)
+  .then((res) => {
+    console.log('Promise.any', res);
+  })
+  .catch((err) => {
+    console.log(err, 'failed!');
+  });
+
+// Promise.race: it's only care about the first one no matter s or f
+Promise.race(myPromises)
+  .then((res) => {
+    console.log('Promise.race', res);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
